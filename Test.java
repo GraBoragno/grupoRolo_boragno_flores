@@ -5,7 +5,101 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Test {
 
+    // --------------------- Test List ----------------------
+
+    @org.junit.jupiter.api.Test
+    public void testListAdd1() throws InformacionInvalida {
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        assertThrows(InformacionInvalida.class, () -> {
+            prueba.add(null);
+        });
+    }
+    @org.junit.jupiter.api.Test
+    public void testListGet1() throws PosicionInvalida, InformacionInvalida{
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        prueba.add(56);
+        prueba.add(101);
+        prueba.add(45);
+        assertEquals(101, prueba.get(1));
+    }
+    @org.junit.jupiter.api.Test
+    public void testListGet2() throws PosicionInvalida {
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        assertThrows(PosicionInvalida.class, () -> {
+            prueba.get(-1);
+        });
+    }
+    @org.junit.jupiter.api.Test
+    public void testListGet3() throws PosicionInvalida {
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        assertThrows(PosicionInvalida.class, () -> {
+            prueba.get(5);
+        });
+    }
+    @org.junit.jupiter.api.Test
+    public void testListSize1() throws InformacionInvalida{
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        prueba.add(56);
+        prueba.add(101);
+        prueba.add(45);
+        assertEquals(3, prueba.size());
+    }
+    @org.junit.jupiter.api.Test
+    public void testListSize2(){
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        assertEquals(0, prueba.size());
+    }
+    @org.junit.jupiter.api.Test
+    public void testListRemove1() throws InformacionInvalida, EmptyListException {
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        prueba.add(56);
+        prueba.add(101);
+        prueba.remove(56);
+        assertEquals(1, prueba.size());
+    }
+    @org.junit.jupiter.api.Test
+    public void testListRemove2() throws InformacionInvalida, EmptyListException {
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        prueba.add(56);
+        prueba.add(101);
+        assertThrows(InformacionInvalida.class, () -> {
+            prueba.remove(2);
+        });
+    }
+    @org.junit.jupiter.api.Test
+    public void testListRemove3() throws InformacionInvalida, PosicionInvalida {
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        assertThrows(EmptyListException.class, () -> {
+            prueba.remove(5);
+        });
+    }
+    @org.junit.jupiter.api.Test
+    public void testListContins1() throws InformacionInvalida{
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        prueba.add(56);
+        prueba.add(101);
+        prueba.add(45);
+        assertTrue( prueba.contains(101));
+    }
+    @org.junit.jupiter.api.Test
+    public void testListContains2() throws InformacionInvalida{
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        prueba.add(56);
+        prueba.add(101);
+        prueba.add(45);
+        assertFalse(prueba.contains(3));
+    }
+
     // --------------- Test Satck ---------------------------
+
+    @org.junit.jupiter.api.Test
+    public void testStackAdd1() throws InformacionInvalida{
+        MyStack<Integer> prueba = new LinkedListImpl<>();
+        prueba.push(2);
+        prueba.push(5);
+        prueba.push(23);
+        assertEquals(3, prueba.size());
+    }
 //    @org.junit.jupiter.api.Test
 //    public void test(){
 //        MyStack<Integer> prueba = new LinkedListImpl<>();
@@ -57,80 +151,5 @@ public class Test {
 //        assertEquals(2,prueba.dequeue());
 //    }
 
-    // --------------------- Test List ----------------------
-    @org.junit.jupiter.api.Test
-    public void testListGet1() throws PosicionInvalida{
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        prueba.add(56);
-        prueba.add(101);
-        prueba.add(45);
-        assertEquals(101, prueba.get(1));
-    }
-    @org.junit.jupiter.api.Test
-    public void testListGet2() throws PosicionInvalida {
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        assertThrows(PosicionInvalida.class, () -> {
-            prueba.get(-1);
-        });
-    }
-    @org.junit.jupiter.api.Test
-    public void testListGet3() throws PosicionInvalida {
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        assertThrows(PosicionInvalida.class, () -> {
-            prueba.get(5);
-        });
-    }
-    @org.junit.jupiter.api.Test
-    public void testListSize1(){
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        prueba.add(56);
-        prueba.add(101);
-        prueba.add(45);
-        assertEquals(3, prueba.size());
-    }
-    @org.junit.jupiter.api.Test
-    public void testListSize2(){
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        assertEquals(0, prueba.size());
-    }
-    @org.junit.jupiter.api.Test
-    public void testListRemove1() throws InformacionInvalida, EmptyListException {
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        prueba.add(56);
-        prueba.add(101);
-        prueba.remove(56);
-        assertEquals(1, prueba.size());
-    }
-    @org.junit.jupiter.api.Test
-    public void testListRemove2() throws InformacionInvalida, EmptyListException {
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        prueba.add(56);
-        prueba.add(101);
-        assertThrows(InformacionInvalida.class, () -> {
-            prueba.remove(2);
-        });
-    }
-    @org.junit.jupiter.api.Test
-    public void testListRemove3() throws InformacionInvalida, PosicionInvalida {
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        assertThrows(EmptyListException.class, () -> {
-            prueba.remove(5);
-        });
-    }
-    @org.junit.jupiter.api.Test
-    public void testListContins1(){
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        prueba.add(56);
-        prueba.add(101);
-        prueba.add(45);
-        assertTrue( prueba.contains(101));
-    }
-    @org.junit.jupiter.api.Test
-    public void testListContains2(){
-        MyList<Integer> prueba = new LinkedListImpl<>();
-        prueba.add(56);
-        prueba.add(101);
-        prueba.add(45);
-        assertFalse(prueba.contains(3));
-    }
+
 }
