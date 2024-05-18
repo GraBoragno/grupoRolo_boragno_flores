@@ -1,6 +1,6 @@
 public interface MyList<T> {
 
-    void add(T value);
+    void add(T value) throws InformacionInvalida;
 
     T get(int position) throws PosicionInvalida;
 
