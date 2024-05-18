@@ -6,7 +6,7 @@ public interface MyList<T> {
 
     boolean contains(T value);
 
-    void remove(T value) throws EmptyListException, InformacionInvalida;
+    void remove(T value) throws InformacionInvalida, EmptyListException;
 
     int size();
 
