@@ -1,5 +1,8 @@
+package TADS;
+
 import Exceptions.EmptyListException;
 import Exceptions.InformacionInvalida;
+import Exceptions.PosicionInvalida;
 
 public interface MyList<T> {
 

@@ -1,12 +1,13 @@
+package Test;
 
 import Exceptions.EmptyListException;
 import Exceptions.InformacionInvalida;
-
 import static org.junit.jupiter.api.Assertions.*;
-
+import Exceptions.PosicionInvalida;
 import TADS.LinkedListImpl;
 import TADS.MyList;
 import org.junit.jupiter.api.Test;
+
 public class TestList {
 
     @Test
