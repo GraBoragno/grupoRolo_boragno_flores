@@ -1,4 +1,5 @@
 
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -93,38 +94,49 @@ public class Test {
     // --------------- Test Satck ---------------------------
 
     @org.junit.jupiter.api.Test
-    public void testStackAdd1() throws InformacionInvalida{
+    public void testStackPush1() throws InformacionInvalida{
         MyStack<Integer> prueba = new LinkedListImpl<>();
         prueba.push(2);
         prueba.push(5);
         prueba.push(23);
         assertEquals(3, prueba.size());
     }
-//    @org.junit.jupiter.api.Test
-//    public void test(){
-//        MyStack<Integer> prueba = new LinkedListImpl<>();
-//        prueba.push(2);
-//        prueba.push(5);
-//        prueba.push(23);
-//        assertEquals(23, prueba.peek());
-//    }
-//    @org.junit.jupiter.api.Test
-//    public void test2() throws EmptyStackException {
-//        MyStack<Integer> prueba = new LinkedListImpl<>();
-//        prueba.push(2);
-//        prueba.push(5);
-//        prueba.push(7);
-//        assertEquals(7, prueba.pop());
-//    }
-//    @org.junit.jupiter.api.Test
-//    public void test3() throws EmptyStackException {
-//        MyStack<Integer> prueba = new LinkedListImpl<>();
-//        prueba.push(2);
-//        prueba.push(5);
-//        prueba.push(7);
-//        assertEquals(3, prueba.size());
-//    }
-//
+    @org.junit.jupiter.api.Test
+    public void testStackPush2() throws InformacionInvalida{
+        MyStack<Integer> prueba = new LinkedListImpl<>();
+        assertThrows(InformacionInvalida.class, () -> {
+            prueba.push(null);
+        });
+    }
+    @org.junit.jupiter.api.Test
+    public void testStackPop1() throws EmptyStackException, InformacionInvalida{
+        MyStack<Integer> prueba = new LinkedListImpl<>();
+        prueba.push(2);
+        prueba.push(5);
+        prueba.push(7);
+        assertEquals(7, prueba.pop());
+    }
+    @org.junit.jupiter.api.Test
+    public void testStackPop2() throws InformacionInvalida, EmptyStackException {
+        MyStack<Integer> prueba = new LinkedListImpl<>();
+        assertThrows(EmptyStackException.class, () -> {
+            prueba.pop();
+        });
+    }
+    @org.junit.jupiter.api.Test
+    public void testStackTop1() throws InformacionInvalida {
+        MyStack<Integer> prueba = new LinkedListImpl<>();
+        prueba.push(2);
+        prueba.push(5);
+        prueba.push(23);
+        assertEquals(23, prueba.top());
+    }
+    @org.junit.jupiter.api.Test
+    public void testStackTop2() throws InformacionInvalida {
+        MyStack<Integer> prueba = new LinkedListImpl<>();
+        assertNull(prueba.top());
+    }
+    
 //    //------------- Test queue ----------------------------
 //    @org.junit.jupiter.api.Test
 //    public void test4(){
