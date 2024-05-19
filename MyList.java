@@ -1,4 +1,5 @@
 import Exceptions.EmptyListException;
+import Exceptions.InformacionInvalida;
 
 public interface MyList<T> {
 

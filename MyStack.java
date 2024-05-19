@@ -1,3 +1,5 @@
+import Exceptions.InformacionInvalida;
+
 import java.util.EmptyStackException;
 
 public interface MyStack<T> {
