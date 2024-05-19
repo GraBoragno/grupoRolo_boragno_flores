@@ -1,3 +1,5 @@
+import Exceptions.EmptyListException;
+
 public interface MyList<T> {
 
     void add(T value) throws InformacionInvalida;

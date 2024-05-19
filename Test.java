@@ -1,6 +1,7 @@
 
+import Exceptions.EmptyListException;
+
 import java.util.EmptyStackException;
-import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -75,6 +76,14 @@ public class Test {
         });
     }
     @org.junit.jupiter.api.Test
+    public void testListRemove4() throws InformacionInvalida, EmptyListException {
+        MyList<Integer> prueba = new LinkedListImpl<>();
+        prueba.add(56);
+        prueba.add(101);
+        prueba.remove(101);
+        assertEquals(1, prueba.size());
+    }
+    @org.junit.jupiter.api.Test
     public void testListContins1() throws InformacionInvalida{
         MyList<Integer> prueba = new LinkedListImpl<>();
         prueba.add(56);
@@ -136,7 +145,7 @@ public class Test {
         MyStack<Integer> prueba = new LinkedListImpl<>();
         assertNull(prueba.top());
     }
-    
+
 //    //------------- Test queue ----------------------------
 //    @org.junit.jupiter.api.Test
 //    public void test4(){
