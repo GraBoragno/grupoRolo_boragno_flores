@@ -1,9 +1,12 @@
+package Test;
+
 import Exceptions.EmptyListException;
 import Exceptions.InformacionInvalida;
 import java.util.EmptyStackException;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 class TestStack {
 
     @Test
@@ -12,7 +15,7 @@ class TestStack {
         prueba.push(2);
         prueba.push(5);
         prueba.push(23);
-        assertEquals(3, prueba.size());
+        Assertions.assertEquals(3, prueba.size());
     }
     @Test
     public void testPush2() throws InformacionInvalida{
@@ -27,7 +30,7 @@ class TestStack {
         prueba.push(2);
         prueba.push(5);
         prueba.push(7);
-        assertEquals(7, prueba.pop());
+        Assertions.assertEquals(7, prueba.pop());
     }
     @Test
     public void testPop2() throws InformacionInvalida, EmptyStackException {
@@ -42,7 +45,7 @@ class TestStack {
         prueba.push(2);
         prueba.push(5);
         prueba.push(23);
-        assertEquals(23, prueba.top());
+        Assertions.assertEquals(23, prueba.top());
     }
     @Test
     public void testTop2() throws InformacionInvalida {

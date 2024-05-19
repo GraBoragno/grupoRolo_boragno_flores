@@ -1,8 +1,11 @@
 
 import Exceptions.EmptyListException;
 import Exceptions.InformacionInvalida;
-import java.util.EmptyStackException;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import TADS.LinkedListImpl;
+import TADS.MyList;
 import org.junit.jupiter.api.Test;
 public class TestList {
 
@@ -112,7 +115,7 @@ public class TestList {
 //    //------------- Test queue ----------------------------
 //    @org.junit.jupiter.api.Test
 //    public void test4(){
-//        MyQueue<Integer> prueba = new LinkedListImpl<>();
+//        TADS.MyQueue<Integer> prueba = new TADS.LinkedListImpl<>();
 //        prueba.enqueue(2);
 //        prueba.enqueue(33);
 //        prueba.enqueue(754);
@@ -120,7 +123,7 @@ public class TestList {
 //    }
 //    @org.junit.jupiter.api.Test
 //    public void test5(){
-//        MyQueue<Integer> prueba = new LinkedListImpl<>();
+//        TADS.MyQueue<Integer> prueba = new TADS.LinkedListImpl<>();
 //        prueba.enqueue(2);
 //        prueba.enqueue(33);
 //        prueba.enqueue(754);
@@ -128,7 +131,7 @@ public class TestList {
 //    }
 //    @org.junit.jupiter.api.Test
 //    public void test6() throws Exceptions.EmptyQueueException {
-//        MyQueue<Integer> prueba = new LinkedListImpl<>();
+//        TADS.MyQueue<Integer> prueba = new TADS.LinkedListImpl<>();
 //        prueba.enqueue(2);
 //        prueba.enqueue(33);
 //        prueba.enqueue(754);
