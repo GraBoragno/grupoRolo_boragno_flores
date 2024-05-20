@@ -11,4 +11,6 @@ public interface MyQueue<T> {
 
     boolean contains(T value);
 
+    int size();
+
 }
