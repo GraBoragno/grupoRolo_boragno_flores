@@ -7,7 +7,7 @@ import Exceptions.PosicionInvalida;
 
 import java.util.EmptyStackException;
 
-public class LinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
+public class LinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T>, MyHashTable<T, T>{
 
     private MyNode<T> first;
 
@@ -115,7 +115,7 @@ public class LinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
         if (first == null)  {
             throw new EmptyStackException();
         }
-        T valueToRemove = null;
+        T valueToRemove;
         if (first.getNext() == null){
             valueToRemove = first.getValue();
             first = null;
@@ -160,24 +160,27 @@ public class LinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
 
     @Override
     public T dequeue() throws EmptyQueueException {
-        if (last == null){
+        if (first == null){
             throw new EmptyQueueException();
         }
-        T valueToRemove = null;
+        T valueToRemove = first.getValue();
         if (first.getNext() == null){
-            valueToRemove = first.getValue();
             first = null;
             last = null;
         }
         else{
-            MyNode<T> temp = first;
-            while (temp.getNext() != last){
-                temp = temp.getNext();
-            }
-            valueToRemove = last.getValue();
-            temp.setNext(null);
-            last = temp;
+            first = first.getNext();
         }
         return valueToRemove;
+    }
+
+    @Override
+    public void put(T key, T value) {
+
+    }
+
+    @Override
+    public void removeHash(T key) {
+
     }
 }
