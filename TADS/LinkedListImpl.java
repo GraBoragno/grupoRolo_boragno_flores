@@ -65,7 +65,7 @@ public class LinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T>, MyH
         return temp.getValue();
     }
 
-    // tmb sirve para la queue
+    // tmb sirve para la queue y el hash
     @Override
     public boolean contains(T value) {
         MyNode<T> temp = this.first;
