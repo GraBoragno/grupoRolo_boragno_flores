@@ -163,7 +163,7 @@ public class LinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T>, MyH
         if (first == null){
             throw new EmptyQueueException();
         }
-        T valueToRemove = first.getValue();
+        T valueToRemove = last.getValue();
         if (first.getNext() == null){
             first = null;
             last = null;
