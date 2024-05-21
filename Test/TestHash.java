@@ -30,7 +30,8 @@ public class TestHash {
         prueba.put(55,14);
         prueba.put(74,36);
         prueba.put(1,58);
-        System.out.println(prueba);
+        prueba.put(2,58);
+        prueba.put(4,58);
         assertEquals(prueba.contains(3), true);
     }
 }
