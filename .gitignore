@@ -1,0 +1,13 @@
+        .idea/
+        out/production/Obligatorio/.idea/
+        out/production/Obligatorio/Exceptions/
+        out/production/Obligatorio/Main.class
+        out/production/Obligatorio/README.md
+        out/production/Obligatorio/TADS/DoubleNode.class
+        out/production/Obligatorio/TADS/LinkedListImpl.class
+        out/production/Obligatorio/TADS/MyHashTable.class
+        out/production/Obligatorio/TADS/MyHashTableImpl.class
+        out/production/Obligatorio/TADS/MyNode.class
+        out/production/Obligatorio/TADS/MyQueue.class
+        out/production/Obligatorio/TADS/MyStack.class
+        out/production/Obligatorio/Test/
