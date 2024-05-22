@@ -37,9 +37,7 @@ class TestStack {
     @Test
     public void testPop2() throws InformacionInvalida, EmptyStackException {
         MyStack<Integer> prueba = new LinkedListImpl<>();
-        assertThrows(EmptyStackException.class, () -> {
-            prueba.pop();
-        });
+        assertThrows(EmptyStackException.class, prueba::pop);
     }
     @Test
     public void testTop1() throws InformacionInvalida {
