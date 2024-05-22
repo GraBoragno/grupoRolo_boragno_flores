@@ -1,11 +1,8 @@
-# Ignorar archivos y carpetas de IntelliJ IDEA
 .idea/
 *.iml
 
-# Ignorar archivos de compilación
 /out/
 /target/
 
-# Ignorar configuraciones específicas del sistema operativo
 .DS_Store
 Thumbs.db
