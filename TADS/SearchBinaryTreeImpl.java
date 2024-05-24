@@ -1,12 +1,24 @@
 package TADS;
+import Exceptions.EmptyTreeException;
+import Exceptions.EntidadYaExiste;
+
 import java.util.ArrayList;
 import java.util.List;
-public class SearchBinaryTreeImpl<T extends Comparable<T>> implements
-        BinaryTree<T> {
+
+/**
+ * @author pegardan
+ * @param <T>
+ *
+ */
+public class SearchBinaryTreeImpl<T extends Comparable<T>> implements BinaryTree<T> {
 
     private TreeNode<T> root;
 
-    public void add(T oElement) {
+    public SearchBinaryTreeImpl(){
+        this.root = null;
+    }
+
+    public void add(T oElement) throws EmptyTreeException, EntidadYaExiste {
         TreeNode<T> oElementToAdd = new TreeNode<T>(oElement);
 
         if (root == null) {
@@ -14,15 +26,20 @@ public class SearchBinaryTreeImpl<T extends Comparable<T>> implements
             root = oElementToAdd;
 
         } else {
-
-            root.add(oElement);
-
+            if(contains(oElement)){
+                throw new EntidadYaExiste();
+            }else{
+                root.add(oElement);
+            }
         }
     }
 
-    public boolean contains(T oElement) {
-
-        return contains(oElement, root);
+    public boolean contains(T oElement)throws EmptyTreeException {
+        if(root == null){
+            throw new EmptyTreeException();
+        }else{
+            return contains(oElement, root);
+        }
     }
 
     private boolean contains(T oElementToSearch, TreeNode<T> oTree) {
@@ -47,7 +64,6 @@ public class SearchBinaryTreeImpl<T extends Comparable<T>> implements
             }
 
         }
-
         return bContains;
     }
 
@@ -61,9 +77,12 @@ public class SearchBinaryTreeImpl<T extends Comparable<T>> implements
 
     }
 
-    public T find(T oElement) {
-
-        return find(oElement, root);
+    public T find(T oElement) throws EmptyTreeException{
+        if(root == null){
+            throw new EmptyTreeException();
+        }else {
+            return find(oElement, root);
+        }
     }
 
     private T find(T oElementToSearch, TreeNode<T> oTree) {
