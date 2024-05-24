@@ -16,8 +16,8 @@ public class MyHashTableImpl<K,T> implements MyHashTable <K, T>{
         return Math.abs(key.hashCode()) % numBuckets;
     }
 
-    private void resize(){
-        int size = numBuckets * 2;
+    private void resize(int size2){
+        int size = size2;
         DoubleNode<K, T>[] newBuckets = (DoubleNode<K, T>[]) new DoubleNode[size]; //creo un array nuevo con el doble de lugares
         for (int i = 0; i < numBuckets; i++) {
             DoubleNode<K, T> temp = buckets[i];
@@ -27,7 +27,7 @@ public class MyHashTableImpl<K,T> implements MyHashTable <K, T>{
                     indexNuevo = (indexNuevo + 1) % size; //aca es igual al put pero no preciso actualizar el valor
                 }
                 newBuckets[indexNuevo] = temp;
-                System.out.println(indexNuevo + " " + temp.getKey().toString());
+//                System.out.println(indexNuevo + " " + temp.getKey().toString());
 
             }
         }
@@ -42,7 +42,7 @@ public class MyHashTableImpl<K,T> implements MyHashTable <K, T>{
         int index = getBucketIndex(key);
         DoubleNode <K,T> temp = buckets [index];
         if (ocupados == numBuckets){
-            resize();
+            resize(numBuckets*2);
         }
         while (temp != null) {
             if (temp.getKey().equals(key)) {
@@ -57,7 +57,7 @@ public class MyHashTableImpl<K,T> implements MyHashTable <K, T>{
         DoubleNode<K, T> newNode = new DoubleNode<>(key, value);
         buckets[index] = newNode;
         ocupados++;
-        System.out.println(index);
+//        System.out.println(index);
     }
 
     @Override
@@ -92,13 +92,27 @@ public class MyHashTableImpl<K,T> implements MyHashTable <K, T>{
             index = (index + 1) % buckets.length;
             temp = buckets[index];
         }
-        temp.setKey(null);
-        temp.setValue(null);
+        buckets[index] = null;
         ocupados--;
-        rehash();
+        resize(numBuckets);
     }
-    private void rehash(){
 
+    @Override
+    public T find(K key) throws InformacionInvalida {
+        if (key == null){
+            throw new InformacionInvalida();
+        }
+        int index = getBucketIndex(key);
+        DoubleNode <K,T> temp = buckets [index];
+        while(temp != null){
+            if (!temp.getKey().equals(key)){
+                index++;
+                temp = buckets[index];
+            } else if (temp.getKey().equals(key)){
+                return temp.getValue();
+            }
+        }
+        throw new InformacionInvalida();
     }
 
     @Override
