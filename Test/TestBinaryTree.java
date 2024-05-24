@@ -5,7 +5,6 @@ import Exceptions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import TADS.*;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 public class TestBinaryTree {
 
