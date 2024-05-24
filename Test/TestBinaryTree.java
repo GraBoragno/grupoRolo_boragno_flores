@@ -26,6 +26,19 @@ public class TestBinaryTree {
         assertFalse(prueba.contains(25));
     }
     @Test
+    public void testRemove2() throws EmptyTreeException, EntidadYaExiste {
+        BinaryTree<Integer> prueba = new SearchBinaryTreeImpl<>();
+        prueba.add(20);
+        prueba.add(15);
+        prueba.add(25);
+        prueba.add(18);
+        prueba.add(10);
+        prueba.add(23);
+        prueba.add(30);
+        prueba.remove(20);
+        assertFalse(prueba.contains(20));
+    }
+    @Test
     public void testContains() throws EmptyTreeException {
         BinaryTree<Integer> prueba = new SearchBinaryTreeImpl<>();
         assertThrows(EmptyTreeException.class, () -> {
